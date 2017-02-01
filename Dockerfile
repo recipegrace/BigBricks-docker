@@ -38,6 +38,6 @@ RUN wget http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch
     mkdir -p ~/bigbricks && \
     cp target/scala-2.11/bigbricks-assembly.jar ~/bigbricks 
 
-
+COPY BigBricks-delegates/target/scala-2.11/bigbricks-assembly.jar ~/ 
 # Define working directory
 WORKDIR /root
