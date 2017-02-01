@@ -35,8 +35,8 @@ RUN wget http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch
     cd BigBricks-delegates && \
     git checkout main-class && \
     sbt package && \
-    mkdir -p /opt/bigbricks && \
-    cp target/scala-2.11/bigbricks-assembly.jar /opt/bigbricks 
+    mkdir -p ~/bigbricks && \
+    cp target/scala-2.11/bigbricks-assembly.jar ~/bigbricks 
 
 
 # Define working directory
