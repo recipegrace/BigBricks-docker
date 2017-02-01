@@ -24,10 +24,11 @@ RUN wget http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch
     git clone https://github.com/homedepot/BigBricks-delegates.git && \
     cd BigBricks-delegates && \
     git checkout main-class && \
-    java -jar $SBTJAR package && \
-    export BIGBRICKSJAR=`pwd`"target/scala-2.11/bigbricks-assembly.jar" && \
+##    java -jar $SBTJAR package && \
+##    export BIGBRICKSJAR=`pwd`"target/scala-2.11/bigbricks-assembly.jar" && \
     echo $BIGBRICKSJAR 
 
-RUN java -jar $BIGBRICKSJAR 
+
+RUN echo $BIGBRICKSJAR 
 # Define working directory
 WORKDIR /root
