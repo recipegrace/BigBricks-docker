@@ -19,13 +19,23 @@ RUN \
   echo >> /root/.bashrc && \
   echo 'export PATH=~/scala-$SCALA_VERSION/bin:$PATH' >> /root/.bashrc
 
+# Install sbt
+RUN \
+  curl -L -o sbt-$SBT_VERSION.deb http://dl.bintray.com/sbt/debian/sbt-$SBT_VERSION.deb && \
+  dpkg -i sbt-$SBT_VERSION.deb && \
+  rm sbt-$SBT_VERSION.deb && \
+  apt-get update && \
+  apt-get install sbt && \
+  sbt sbtVersion
+
+
 RUN wget http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch//$SBT_VERSION/sbt-launch.jar && \
     export SBTJAR=`pwd`"sbt-launch.jar" && \
     git clone https://github.com/homedepot/BigBricks-delegates.git && \
     cd BigBricks-delegates && \
     git checkout main-class && \
-##    java -jar $SBTJAR package && \
-##    export BIGBRICKSJAR=`pwd`"target/scala-2.11/bigbricks-assembly.jar" && \
+    sbt package && \
+    export BIGBRICKSJAR=`pwd`"target/scala-2.11/bigbricks-assembly.jar" && \
     echo $BIGBRICKSJAR 
 
 
