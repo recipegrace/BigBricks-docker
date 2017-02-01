@@ -38,9 +38,9 @@ RUN touch /usr/lib/jvm/java-8-openjdk-amd64/release
 ##    mkdir -p ~/bigbricks && \
 ##    cp target/scala-2.11/bigbricks-assembly.jar ~/bigbricks 
 
+ENV BIGBRICKS_HOME /usr/local/bigbricks
+WORKDIR $BIGBRICKS_HOME
 RUN touch hello.txt
-ADD  hello.txt /opt
+
 #COPY BigBricks-delegates/target/scala-2.11/bigbricks-assembly.jar /opt/ 
-COPY ls /opt/
 # Define working directory
-WORKDIR /root
