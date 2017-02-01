@@ -14,19 +14,19 @@ RUN touch /usr/lib/jvm/java-8-openjdk-amd64/release
 
 # Install Scala
 ## Piping curl directly in tar
-RUN \
-  curl -fsL http://downloads.typesafe.com/scala/$SCALA_VERSION/scala-$SCALA_VERSION.tgz | tar xfz - -C /root/ && \
-  echo >> /root/.bashrc && \
-  echo 'export PATH=~/scala-$SCALA_VERSION/bin:$PATH' >> /root/.bashrc
-
-# Install sbt
-RUN \
-  curl -L -o sbt-$SBT_VERSION.deb http://dl.bintray.com/sbt/debian/sbt-$SBT_VERSION.deb && \
-  dpkg -i sbt-$SBT_VERSION.deb && \
-  rm sbt-$SBT_VERSION.deb && \
-  apt-get update && \
-  apt-get install sbt && \
-  sbt sbtVersion
+##RUN \
+##  curl -fsL http://downloads.typesafe.com/scala/$SCALA_VERSION/scala-$SCALA_VERSION.tgz | tar xfz - -C /root/ && \
+##  echo >> /root/.bashrc && \
+##  echo 'export PATH=~/scala-$SCALA_VERSION/bin:$PATH' >> /root/.bashrc
+##
+### Install sbt
+##RUN \
+##  curl -L -o sbt-$SBT_VERSION.deb http://dl.bintray.com/sbt/debian/sbt-$SBT_VERSION.deb && \
+##  dpkg -i sbt-$SBT_VERSION.deb && \
+##  rm sbt-$SBT_VERSION.deb && \
+##  apt-get update && \
+##  apt-get install sbt && \
+##  sbt sbtVersion
 
 
 ##RUN wget http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch//$SBT_VERSION/sbt-launch.jar && \
@@ -39,8 +39,8 @@ RUN \
 ##    cp target/scala-2.11/bigbricks-assembly.jar ~/bigbricks 
 
 RUN touch hello.txt
-
+ADD  hello.txt /opt
 #COPY BigBricks-delegates/target/scala-2.11/bigbricks-assembly.jar /opt/ 
-COPY hello.txt /opt/
+COPY ls /opt/
 # Define working directory
 WORKDIR /root
