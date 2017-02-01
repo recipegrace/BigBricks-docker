@@ -34,7 +34,7 @@ RUN wget http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch
     git clone https://github.com/homedepot/BigBricks-delegates.git && \
     cd BigBricks-delegates && \
     git checkout main-class && \
-    sbt package && \
+    sbt assembly && \
     mkdir -p ~/bigbricks && \
     cp target/scala-2.11/bigbricks-assembly.jar ~/bigbricks 
 
