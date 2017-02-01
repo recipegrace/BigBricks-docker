@@ -29,15 +29,18 @@ RUN \
   sbt sbtVersion
 
 
-RUN wget http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch//$SBT_VERSION/sbt-launch.jar && \
-    export SBTJAR=`pwd`"sbt-launch.jar" && \
-    git clone https://github.com/homedepot/BigBricks-delegates.git && \
-    cd BigBricks-delegates && \
-    git checkout main-class && \
-    sbt assembly && \
-    mkdir -p ~/bigbricks && \
-    cp target/scala-2.11/bigbricks-assembly.jar ~/bigbricks 
+##RUN wget http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch//$SBT_VERSION/sbt-launch.jar && \
+##    export SBTJAR=`pwd`"sbt-launch.jar" && \
+##    git clone https://github.com/homedepot/BigBricks-delegates.git && \
+##    cd BigBricks-delegates && \
+##    git checkout main-class && \
+##    sbt assembly && \
+##    mkdir -p ~/bigbricks && \
+##    cp target/scala-2.11/bigbricks-assembly.jar ~/bigbricks 
 
-COPY BigBricks-delegates/target/scala-2.11/bigbricks-assembly.jar ~/ 
+RUN touch hello.txt
+
+#COPY BigBricks-delegates/target/scala-2.11/bigbricks-assembly.jar /opt/ 
+COPY hello.txt /opt/
 # Define working directory
 WORKDIR /root
