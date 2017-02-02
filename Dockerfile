@@ -42,5 +42,6 @@ ENV BIGBRICKS_HOME /usr/local/bigbricks
 WORKDIR $BIGBRICKS_HOME
 RUN touch hello.txt
 
+WORKDIR /root
 #COPY BigBricks-delegates/target/scala-2.11/bigbricks-assembly.jar /opt/ 
 # Define working directory
