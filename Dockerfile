@@ -33,9 +33,7 @@ RUN \
 
 WORKDIR $BIGBRICKS_HOME
 
-RUN wget http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch//$SBT_VERSION/sbt-launch.jar && \
-    export SBTJAR=`pwd`"sbt-launch.jar" && \
-    git clone https://github.com/homedepot/BigBricks-delegates.git && \
+RUN git clone https://github.com/homedepot/BigBricks-delegates.git && \
     cd BigBricks-delegates && \
     git checkout main-class && \
     sbt assembly && \
