@@ -1,3 +1,3 @@
 ###This docks the bigbricks application
 
-This ships with the bigbricks jars
+This ships with the bigbricks jar
