@@ -5,7 +5,7 @@
 #
 
 # Pull base image
-FROM  openjdk:8
+FROM  maven:3.3.9-jdk-8
 
 ENV SBT_VERSION 0.13.13
 ENV SCALA_VERSION 2.11.8
@@ -27,7 +27,6 @@ RUN \
   rm sbt-$SBT_VERSION.deb && \
   apt-get update && \
   apt-get install sbt && \
-  apt-get install maven && \
   sbt sbtVersion
 
 #Install bigbricks
