@@ -7,7 +7,7 @@
 # Pull base image
 FROM  maven:3.3.9-jdk-8
 
-ENV SBT_VERSION 0.13.13
+ENV SBT_VERSION 1.0.2
 ENV SCALA_VERSION 2.11.8
 ENV BIGBRICKS_HOME /usr/local/bigbricks
 # Scala expects this file
