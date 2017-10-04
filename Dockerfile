@@ -35,7 +35,7 @@ WORKDIR $BIGBRICKS_HOME
 
 RUN git clone https://github.com/homedepot/BigBricks-delegates.git && \
     cd BigBricks-delegates && \
-    git checkout main-class && \
+    git checkout master && \
     sbt assembly && \
     cp target/scala-2.11/bigbricks-assembly.jar $BIGBRICKS_HOME 
 
